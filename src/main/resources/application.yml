@@ -1,0 +1,7 @@
+micronaut:
+  application:
+    name: kafkaIntegrationDemo
+netty:
+  default:
+    allocator:
+      max-order: 3
