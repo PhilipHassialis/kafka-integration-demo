@@ -5,3 +5,7 @@ netty:
   default:
     allocator:
       max-order: 3
+kafka:
+  boostrap:
+    servers:
+      - localhost:9092
