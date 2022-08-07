@@ -30,4 +30,12 @@ public class PriceUpdate {
 	public void setLastPrice(BigDecimal lastPrice) {
 		this.lastPrice = lastPrice;
 	}
+
+	@Override
+	public String toString() {
+		return "PriceUpdate{" +
+			"symbol='" + symbol + '\'' +
+			", lastPrice=" + lastPrice +
+			'}';
+	}
 }
