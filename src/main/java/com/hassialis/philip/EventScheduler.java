@@ -2,6 +2,8 @@ package com.hassialis.philip;
 
 import com.hassialis.philip.quotes.external.ExternalQuote;
 import com.hassialis.philip.quotes.external.ExternalQuoteProducer;
+import io.micronaut.context.annotation.Requires;
+import io.micronaut.context.env.Environment;
 import io.micronaut.scheduling.annotation.Scheduled;
 import jakarta.inject.Singleton;
 import org.slf4j.Logger;
@@ -13,6 +15,7 @@ import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 @Singleton
+@Requires(notEnv = Environment.TEST)
 public class EventScheduler {
 	private final ExternalQuoteProducer externalQuoteProducer;
 	private static final List<String> SYMBOLS = Arrays.asList("AAPL", "GOOG", "MSFT", "AMZN", "META", "TSLA");
@@ -23,6 +26,7 @@ public class EventScheduler {
 	}
 
 	@Scheduled(fixedDelay = "10s")
+
 	void generate() {
 		ThreadLocalRandom random = ThreadLocalRandom.current();
 		final ExternalQuote quote = new ExternalQuote(
